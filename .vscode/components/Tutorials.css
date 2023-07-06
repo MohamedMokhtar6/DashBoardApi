@@ -1,0 +1,29 @@
+.head{
+    background-image:url('../img/ai2.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 350px;
+    background-size:cover;
+    color: white;
+}
+.courses{
+    margin: 30px;
+    display: flex;
+    justify-content:space-between;
+
+}
+img{
+    width: 55px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.containerGrid{
+    padding: 20px;
+    justify-content: center;
+}

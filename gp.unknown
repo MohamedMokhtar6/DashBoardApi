@@ -1,0 +1,1443 @@
+{
+	"info": {
+		"_postman_id": "41127627-81b0-4a0f-9541-ab8d09f99d98",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23949177"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Create  student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"Mohamed6\",\r\n  \"email\": \"mohamed@gmail.com\",\r\n  \"userName\": \"mohamed\",\r\n  \"phoneNumber\": \"01017715716\",\r\n  \"gender\": 0,\r\n  \"roleId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Student/AddStudent",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Student",
+								"AddStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"mohamed@gmail.com\",\r\n  \"password\": \"Mohamed6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Student/Login",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Student",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"string\",\r\n  \"oldPassword\": \"string\",\r\n  \"newPassword\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Student/ChangeStudentPassword",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Student",
+								"ChangeStudentPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fisrtName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"userName\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"gender\": 0,\r\n  \"roleId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Student/UpdateStudentProfile?id",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Student",
+								"UpdateStudentProfile"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}Common/Student/GetStudents",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Student",
+								"GetStudents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}Common/Student/GetStudent?id=1",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Student",
+								"GetStudent"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Student/DeleteStudent?id=3cb32372-510e-4771-bc2c-e5229ea40fe0",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Student",
+								"DeleteStudent"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3cb32372-510e-4771-bc2c-e5229ea40fe0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create  Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"string\",\r\n  \"email\": \"string\",\r\n  \"userName\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"gender\": 0,\r\n  \"roleId\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Admin/AddAdmin",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Admin",
+								"AddAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"mohamed@gmail.com\",\r\n  \"password\": \"Mohamed6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Admin/Login",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Admin",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"string\",\r\n  \"oldPassword\": \"string\",\r\n  \"newPassword\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Admin/ChangeAdminPassword",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Admin",
+								"ChangeAdminPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fisrtName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"userName\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"gender\": 0,\r\n  \"roleId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Admin/UpdateAdminProfile?id",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Admin",
+								"UpdateAdminProfile"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Admins",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}Dashboard/Admin/GetAdmins",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Admin",
+								"GetAdmins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}Dashboard/Admin/GetAdmin?id=0",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Admin",
+								"GetAdmin"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Admin/DeleteAdmin?id=3cb32372-510e-4771-bc2c-e5229ea40fe0",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Admin",
+								"DeleteAdmin"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3cb32372-510e-4771-bc2c-e5229ea40fe0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "Add course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"durationPerDays\": 0,\r\n  \"constructorId\": \"string\",\r\n  \"isActive\": true,\r\n  \"htmlCentent\": \"string\",\r\n  \"jupiter\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Course/AddCourse",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Course",
+								"AddCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Course/GetCourse?CourseId=0",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Course",
+								"GetCourse"
+							],
+							"query": [
+								{
+									"key": "CourseId",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Course/DeleteCourse?CourseId=5",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Course",
+								"DeleteCourse"
+							],
+							"query": [
+								{
+									"key": "CourseId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Course/GetAllCourcesAsync",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Course",
+								"GetAllCourcesAsync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LearningPath",
+			"item": [
+				{
+					"name": "Add LearningPath",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"htmlContent\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPath/AddLearningPath",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPath",
+								"AddLearningPath"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get LearningPath",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPath/GetLearningPath?LearningPathName=1",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPath",
+								"GetLearningPath"
+							],
+							"query": [
+								{
+									"key": "LearningPathName",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete LearningPath",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPath/DeleteLearningPath?id=1",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPath",
+								"DeleteLearningPath"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get LearningPaths",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPath/GetAllLearningPathesAsync",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPath",
+								"GetAllLearningPathesAsync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LearningPathCourse",
+			"item": [
+				{
+					"name": "Add LearningPathCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": 0,\r\n  \"learningPathId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPathCourse/AddLearningPathCourse",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPathCourse",
+								"AddLearningPathCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get LearningPathCourse",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPathCourse/GetLearningPathCourse?LearningPathCourseId=7",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPathCourse",
+								"GetLearningPathCourse"
+							],
+							"query": [
+								{
+									"key": "LearningPathCourseId",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete LearningPathCourse",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPathCourse/DeleteLearningPathCourse?LearningPathCourseId=5",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPathCourse",
+								"DeleteLearningPathCourse"
+							],
+							"query": [
+								{
+									"key": "LearningPathCourseId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get LearningPathCourse",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/LearningPathCourse/GetAllLearningPathCoursesAsync",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"LearningPathCourse",
+								"GetAllLearningPathCoursesAsync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StudentCompetition",
+			"item": [
+				{
+					"name": "Add StudentCompetition",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": 0,\r\n  \"startDate\": \"2023-03-29T17:20:37.907Z\",\r\n  \"endtDate\": \"2023-03-29T17:20:37.907Z\",\r\n  \"studentId\": \"string\",\r\n  \"competitionId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCompetition/AddStudentCompetition",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCompetition",
+								"AddStudentCompetition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get StudentCompetition",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCompetition/GetStudentCompetition?StudentCopetitionId=3",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCompetition",
+								"GetStudentCompetition"
+							],
+							"query": [
+								{
+									"key": "StudentCopetitionId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete StudentCompetition",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCompetition/DeleteStudentCompetition?StudentCompetitionID=5",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCompetition",
+								"DeleteStudentCompetition"
+							],
+							"query": [
+								{
+									"key": "StudentCompetitionID",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get StudentCompetitions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCompetition/GetAllStudentCompetitionsAsync",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCompetition",
+								"GetAllStudentCompetitionsAsync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StudentCourse",
+			"item": [
+				{
+					"name": "Add StudentCourse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": 0,\r\n  \"startDate\": \"2023-03-29T17:23:53.873Z\",\r\n  \"endtDate\": \"2023-03-29T17:23:53.873Z\",\r\n  \"studentId\": \"string\",\r\n  \"courseId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCourse/AddStudentCourse",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCourse",
+								"AddStudentCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get StudentCourse",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCourse/GetStudentCourse?id=3",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCourse",
+								"GetStudentCourse"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete StudentCourse",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCourse/DeleteStudentCourse?id=5",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCourse",
+								"DeleteStudentCourse"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get StudentCourses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentCourse/GetAllStudentcoursessAsync",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentCourse",
+								"GetAllStudentcoursessAsync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StudentTest",
+			"item": [
+				{
+					"name": "Add StudentTest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"testId\": 0,\r\n  \"userId\": \"string\",\r\n  \"status\": 0,\r\n  \"score\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentTest/AddStudentTest",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentTest",
+								"AddStudentTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get StudentTest",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentTest/GetStudentTest?TestId=1",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentTest",
+								"GetStudentTest"
+							],
+							"query": [
+								{
+									"key": "TestId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete StudentTest",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentTest/DeleteStudentTest?Id=5",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentTest",
+								"DeleteStudentTest"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get StudentTests",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/StudentTest/GetAllStudentTests",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"StudentTest",
+								"GetAllStudentTests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Add Test",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"string\",\r\n  \"startDate\": \"2023-03-29T17:33:28.403Z\",\r\n  \"endtDate\": \"2023-03-29T17:33:28.403Z\",\r\n  \"courseId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Test/AddTest",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Test",
+								"AddTest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Test/GetTest?TestId=2",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Test",
+								"GetTest"
+							],
+							"query": [
+								{
+									"key": "TestId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Test",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Test/DeleteTest?id=5",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Test",
+								"DeleteTest"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tests",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Common/Test/GetAllTestsAsync",
+							"host": [
+								"{{Url}}Common"
+							],
+							"path": [
+								"Test",
+								"GetAllTestsAsync"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Competition",
+			"item": [
+				{
+					"name": "Add Competition",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"prize\": 0,\r\n  \"currency\": \"string\",\r\n  \"startDate\": \"2023-03-29T17:44:53.725Z\",\r\n  \"endtDate\": \"2023-03-29T17:44:53.725Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Competition/AddCompetition",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Competition",
+								"AddCompetition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Competition",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Competition/DeleteCompetition?id=5",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Competition",
+								"DeleteCompetition"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Competitions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Competition/GetAllCompetitions",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Competition",
+								"GetAllCompetitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Competition",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"string\",\r\n  \"description\": \"string\",\r\n  \"prize\": 0,\r\n  \"startDate\": \"2023-03-29T17:46:25.545Z\",\r\n  \"endtDate\": \"2023-03-29T17:46:25.545Z\",\r\n  \"currency\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}Dashboard/Competition/UpdateCompetition?id=0",
+							"host": [
+								"{{Url}}Dashboard"
+							],
+							"path": [
+								"Competition",
+								"UpdateCompetition"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
