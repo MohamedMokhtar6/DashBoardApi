@@ -52,10 +52,7 @@ function CreateBrand() {
       .catch(function (error) {
         if (error.response) {
           console.log(error.response.data);
-          if (error.response.data === "category not found") {
-            notify("Category not found", "warn");
-            return;
-          }
+          notify("Category not found", "warn");
         }
       });
   };

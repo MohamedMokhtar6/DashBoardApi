@@ -5,10 +5,8 @@ import Navbaradmin from "../Components/util/Navbaradmin";
 function HomePage() {
   return (
     <>
-      <Row className="mx-0 p-0">
-        <Navbaradmin />
-        ss
-      </Row>
+      <Navbaradmin />
+      <Row className="mx-0 p-0">ss</Row>
     </>
   );
 }

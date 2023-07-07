@@ -177,6 +177,7 @@ input::-webkit-inner-spin-button {
   opacity: 0;
   z-index: -1;
   position: absolute;
+  width: 0px;
 }
 
 @media (max-width: 576px) {

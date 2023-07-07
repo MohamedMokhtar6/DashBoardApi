@@ -1,10 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import cart from "../../Images/cart2.png";
+import notify from "../util/notify;";
+import axios from "axios";
+const baseURL = "https://localhost:7152/api/Auth/SignIn";
 
 function LoginForm() {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [res, setRes] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const login = { email: email, password: password };
+  const handleChangePassword = (event) => {
+    event.persist();
+    setPassword(event.target.value);
+  };
+  const handleChangeEmail = (event) => {
+    event.persist();
+    setEmail(event.target.value);
+  };
+
+  const Login = async () => {
+    if (email === "") {
+      notify("Enter  email", "error");
+      return;
+    }
+    if (password === "") {
+      notify("Enter  passsword", "error");
+      return;
+    }
+    await axios
+      .post(baseURL, login)
+      .then((response) => {
+        setRes(response.data);
+
+        setLoading(false);
+        // setInterval(() => {
+        //   // eslint-disable-next-line no-restricted-globals
+        //   location.reload();
+        // }, 1000);
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          notify(error.response.data, "warn");
+          setError(error.response.data);
+        }
+      });
+  };
+  useEffect(() => {
+    if (loading === false) {
+      if (res) {
+        console.log(res);
+        if (res.token) {
+          localStorage.setItem("token", res.token);
+          localStorage.setItem("user", res.userName);
+          notify(res.masseage, "success");
+          setTimeout(() => {
+            navigate("/");
+          }, 1500);
+        } else {
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+        }
+
+        setLoading(true);
+      }
+    }
+  }, [loading]);
   const navigate = useNavigate();
   return (
     <div className="loginPage">
@@ -18,6 +84,8 @@ function LoginForm() {
               type="email"
               placeholder="Your Email"
               className="logInInput"
+              value={email}
+              onChange={handleChangeEmail}
             />
           </div>
           <div className="divInput">
@@ -26,16 +94,16 @@ function LoginForm() {
               type="password"
               placeholder="Password"
               className="logInInput"
+              value={password}
+              onChange={handleChangePassword}
             />
           </div>
-          <button
-            className="p-1 mt-4 loginBtn"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
+          <button className="p-1 mt-4 loginBtn" onClick={Login}>
             LOGIN
           </button>
+          {loading ? null : (
+            <Spinner animation="border" role="status"></Spinner>
+          )}
         </div>
         <ToastContainer />
       </Container>

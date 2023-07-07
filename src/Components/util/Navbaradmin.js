@@ -2,9 +2,11 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbaradmin() {
+  var user = localStorage.getItem("user");
+
   const navigate = useNavigate();
   return (
-    <div className="navBar align-items-center">
+    <div className="navBar align-items-center py-2">
       <i
         className="fa-solid fa-bars fs-2 click hideNav"
         onClick={(e) => {
@@ -16,8 +18,10 @@ function Navbaradmin() {
         }}
       ></i>
       {/* <div className="hide  align-items-center"> */}
-      <div className="d-flex justify-content-center navItem">
-        <span className="fit ">Welcome Mohamed Mokhtar</span>
+      <div className="d-flex justify-content-center navItem ms-2">
+        <Link to={"/"}>
+          <span className="fit ">{user ? <>{user}</> : null}</span>
+        </Link>
       </div>
       <div className="navItem ">
         <Link to={"/allUsers"}>All Users</Link>
@@ -48,7 +52,7 @@ function Navbaradmin() {
       </div>
       <div className="d-flex justify-content-center navItem">
         <button
-          className="p-1 mt-4 fit bg-dark text-white navItem"
+          className="p-1  fit bg-dark text-white navItem"
           onClick={() => {
             navigate("/login");
           }}
