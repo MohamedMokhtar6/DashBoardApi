@@ -114,7 +114,7 @@ a{
     gap: 1px;
     align-items: center;
     width: 100%;
-    margin: 1.3rem 0;
+    
 }
 .navItem:hover,.navItem a:hover{
   color: goldenrod;
@@ -125,15 +125,17 @@ a{
   -o-transition: all 0.2s ease-in-out;
 
 }
+.active{
+  color: goldenrod !important;
+  border-bottom: 1px solid;
+}
 
 .navItem a{
   color: var(--mainColor);
   width: 100%;
     text-align: center;
 }
-/* .hide{
-  display: flex;
-} */
+
 
 /*___________________________End__Side Bar____________________*/
 /*___________________________Start__Table____________________*/
@@ -183,6 +185,7 @@ input::-webkit-inner-spin-button {
   width: 0px;
 }
 
+
 @media (max-width: 576px) {
    
    .userInput{
@@ -207,5 +210,6 @@ input::-webkit-inner-spin-button {
     }
     .hide{
       display: flex ;
+      margin: 1.3rem 0;
     }
 }

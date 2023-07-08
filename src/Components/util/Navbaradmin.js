@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function Navbaradmin() {
   var user = localStorage.getItem("user");
@@ -18,36 +18,36 @@ function Navbaradmin() {
         }}
       ></i>
       <div className=" justify-content-center navItem ms-2">
-        <Link to={"/"}>
+        <NavLink to={"/"}>
           <span className="fit ">{user ? <>{user}</> : null}</span>
-        </Link>
+        </NavLink>
       </div>
       <div className="navItem ">
-        <Link to={"/allUsers"}>All Users</Link>
+        <NavLink to={"/allUsers"}>All Users</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/allProducts"}>All Products</Link>
+        <NavLink to={"/allProducts"}>All Products</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/allCategories"}>All Categories</Link>
+        <NavLink to={"/allCategories"}>All Categories</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/allBrands"}>All Brands</Link>
+        <NavLink to={"/allBrands"}>All Brands</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/allOrders"}>All orders</Link>
+        <NavLink to={"/allOrders"}>All orders</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/createUser"}>Create User</Link>
+        <NavLink to={"/createUser"}>Create User</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/createProduct"}>Create Product</Link>
+        <NavLink to={"/createProduct"}>Create Product</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/createCategory"}>Create Category</Link>
+        <NavLink to={"/createCategory"}>Create Category</NavLink>
       </div>
       <div className="navItem">
-        <Link to={"/createBrand"}>Create Brand</Link>
+        <NavLink to={"/createBrand"}>Create Brand</NavLink>
       </div>
       <div className="d-flex justify-content-center navItem">
         <button

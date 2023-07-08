@@ -1,83 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Row } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
-import notify from "../util/notify;";
-import axios from "axios";
-const baseURL = "https://localhost:7152/api/Auth/Register";
-function CreateUser() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phoneNumber, setphoneNumber] = useState("");
-  const [res, setRes] = useState(false);
-  const user = {
-    firstName: firstName,
-    lastName: lastName,
-    username: username,
-    email: email,
-    password: password,
-    phoneNumber: phoneNumber,
-  };
-  const handleChangeFirstName = (event) => {
-    event.persist();
-    setFirstName(event.target.value);
-  };
-  const handleChangeLastName = (event) => {
-    event.persist();
-    setLastName(event.target.value);
-  };
-  const handleChangeUserName = (event) => {
-    event.persist();
-    setUsername(event.target.value);
-  };
-  const handleChangeEmail = (event) => {
-    event.persist();
-    setEmail(event.target.value);
-  };
-  const handleChangePassword = (event) => {
-    event.persist();
-    setPassword(event.target.value);
-  };
-  const handleChangePhone = (event) => {
-    event.persist();
-    setphoneNumber(event.target.value);
-  };
+import CreateUserHook from "../../Hooks/CreateUserHook";
 
-  const createUser = async () => {
-    if (
-      firstName === "" ||
-      lastName === "" ||
-      username === "" ||
-      email === "" ||
-      password === "" ||
-      phoneNumber === ""
-    ) {
-      notify("Complete Data!!", "warn");
-      return;
-    }
-    if (phoneNumber.length < 11) {
-      notify("Wrong PhoneNumber", "warn");
-      return;
-    }
-    await axios
-      .post(baseURL, user)
-      .then((response) => {
-        setRes(true);
-        console.log(response.data);
-        setInterval(() => {
-          // eslint-disable-next-line no-restricted-globals
-          location.reload();
-        }, 1000);
-      })
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response.data);
-          notify(error.response.data, "warn");
-        }
-      });
-  };
+function CreateUser() {
+  const [
+    firstName,
+    lastName,
+    username,
+    password,
+    phoneNumber,
+    res,
+    email,
+    handleChangeFirstName,
+    handleChangeLastName,
+    handleChangeUserName,
+    handleChangeEmail,
+    handleChangePassword,
+    handleChangePhone,
+    createUser,
+  ] = CreateUserHook();
   return (
     <>
       <Row className="m-3 flex-column align-items-center ">

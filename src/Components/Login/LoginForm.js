@@ -38,10 +38,6 @@ function LoginForm() {
         setRes(response.data);
 
         setLoading(false);
-        // setInterval(() => {
-        //   // eslint-disable-next-line no-restricted-globals
-        //   location.reload();
-        // }, 1000);
       })
       .catch(function (error) {
         if (error.response) {

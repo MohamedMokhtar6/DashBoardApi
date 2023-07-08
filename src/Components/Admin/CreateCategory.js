@@ -1,32 +1,9 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { Button, Row } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
-import notify from "../util/notify;";
-const baseURL = "https://localhost:7152/api/Categorys";
+import CreateCategoryHook from "../../Hooks/CreateCategoryHook";
 function CreateCategory() {
-  const [name, setName] = useState("");
-  const [res, setRes] = useState(false);
-  const category = { name: name };
-  const handleChange = (event) => {
-    event.persist();
-    setName(event.target.value);
-  };
-
-  const createCategory = async () => {
-    if (name === "") {
-      notify("Enter Category Name", "error");
-      return;
-    }
-    await axios.post(baseURL, category).then((response) => {
-      setRes(true);
-      console.log(response.data);
-      setInterval(() => {
-        // eslint-disable-next-line no-restricted-globals
-        location.reload();
-      }, 1000);
-    });
-  };
+  const [name, handleChange, createCategory, res] = CreateCategoryHook();
   return (
     <>
       <Row className="m-3 flex-column align-items-center ">
