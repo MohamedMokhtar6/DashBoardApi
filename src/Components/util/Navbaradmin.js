@@ -8,7 +8,7 @@ function Navbaradmin() {
   return (
     <div className="navBar align-items-center py-2">
       <i
-        className="fa-solid fa-bars fs-2 click hideNav"
+        className="fa-solid fa-bars fs-2 click hideNav w-75  text-end"
         onClick={(e) => {
           let d = document.querySelectorAll(".navItem");
           let nav = document.querySelector(".navBar");
@@ -17,8 +17,7 @@ function Navbaradmin() {
           }
         }}
       ></i>
-      {/* <div className="hide  align-items-center"> */}
-      <div className="d-flex justify-content-center navItem ms-2">
+      <div className=" justify-content-center navItem ms-2">
         <Link to={"/"}>
           <span className="fit ">{user ? <>{user}</> : null}</span>
         </Link>
@@ -52,7 +51,7 @@ function Navbaradmin() {
       </div>
       <div className="d-flex justify-content-center navItem">
         <button
-          className="p-1  fit bg-dark text-white navItem"
+          className="p-1  fit bg-dark text-white navItem userInput justify-content-center"
           onClick={() => {
             navigate("/login");
           }}

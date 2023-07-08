@@ -114,6 +114,7 @@ a{
     gap: 1px;
     align-items: center;
     width: 100%;
+    margin: 1.3rem 0;
 }
 .navItem:hover,.navItem a:hover{
   color: goldenrod;
@@ -153,10 +154,12 @@ a{
 /*___________________________End__User____________________*/
 ::-webkit-scrollbar {
   width: 15px;
+  height: 10px;
+  
 }
 
 ::-webkit-scrollbar-track {
-  background: yellow;
+  background: rgba(255, 255, 0, 0.271);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -193,13 +196,14 @@ input::-webkit-inner-spin-button {
    }
     .show{
       display: flex !important;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
     } 
     .navBar{
       flex-direction: column;
     }
     .navItem{
-      display: none;
+      display: none ;
     }
     .hide{
       display: flex ;

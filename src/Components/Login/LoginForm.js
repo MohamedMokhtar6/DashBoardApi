@@ -93,10 +93,21 @@ function LoginForm() {
             <input
               type="password"
               placeholder="Password"
-              className="logInInput"
+              className="logInInput pass"
               value={password}
               onChange={handleChangePassword}
             />
+            <i
+              className="fa-solid fa-eye click"
+              onClick={(e) => {
+                e.target.classList.toggle("fa-eye-slash");
+                let pass = document.querySelector(".pass");
+                pass.type = "text";
+                if (!e.target.classList.contains("fa-eye-slash")) {
+                  pass.type = "password";
+                }
+              }}
+            ></i>
           </div>
           <button className="p-1 mt-4 loginBtn" onClick={Login}>
             LOGIN
