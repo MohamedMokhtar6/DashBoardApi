@@ -48,13 +48,13 @@ function UserTable() {
   return (
     <div className="DataTable">
       <Modal show={show} onHide={handleClose}>
-        <Modal.Body>هل أنت متأكد من عمليه الحذف ؟</Modal.Body>
+        <Modal.Body>ِِAre you sure to delete ? </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            تراجع
+            Cancel
           </Button>
           <Button variant="danger" onClick={handelDelete}>
-            تأكيد الحذف
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>

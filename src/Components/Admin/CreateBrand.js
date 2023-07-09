@@ -49,7 +49,12 @@ function CreateBrand() {
             <img
               src={poster}
               alt="fzx"
-              style={{ cursor: "pointer", maxWidth: "100%" }}
+              style={{
+                cursor: "pointer",
+                maxWidth: "100%",
+                width: "8rem",
+                height: "8rem",
+              }}
             />
           </label>
           <input

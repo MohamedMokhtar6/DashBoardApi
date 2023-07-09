@@ -11,6 +11,9 @@ import CreateUserPage from "./Pages/Admin/CreateUserPage";
 import CreateBrandPage from "./Pages/Admin/CreateBrandPage";
 import CreateCategoryPage from "./Pages/Admin/CreateCategoryPage";
 import CreateProductPage from "./Pages/Admin/CreateProductPage";
+import EditProductPage from "./Pages/Admin/EditProductPage";
+import EditBrandPage from "./Pages/Admin/EditBrandPage";
+import EditCategoryPage from "./Pages/Admin/EditCategoryPage";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
           <Route path="/createBrand" element={<CreateBrandPage />} />
           <Route path="/createCategory" element={<CreateCategoryPage />} />
           <Route path="/createProduct" element={<CreateProductPage />} />
+          <Route path="/editProduct/:id" element={<EditProductPage />} />
+          <Route path="/editBrand/:id" element={<EditBrandPage />} />
+          <Route path="/editCategory/:id" element={<EditCategoryPage />} />
         </Routes>
       </BrowserRouter>
     </>
