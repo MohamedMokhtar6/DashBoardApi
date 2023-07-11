@@ -1,12 +1,11 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import notify from "../Components/util/notify;";
-import axios from "axios";
-import avatar from "../Images/add.png";
+import { useParams } from "react-router-dom";
 
-const baseURL = "https://localhost:7152/api/Products";
-const brandURL = "https://localhost:7152/api/Brand";
-const categoryUrl = "https://localhost:7152/api/Categorys";
-function CreateProductHook() {
+function EditProductHook() {
+  const { id } = useParams();
+  const [change, setChange] = useState(false);
   const [categories, setCategories] = useState(null);
   const [brands, setBrands] = useState(null);
   const [name, setName] = useState("");
@@ -16,10 +15,9 @@ function CreateProductHook() {
   const [quantity, setQuantity] = useState("");
   const [catId, setCatId] = useState(0);
   const [brandId, setBrandId] = useState(0);
-  const [poster, setPoster] = useState(avatar);
+  const [poster, setPoster] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [res, setRes] = useState(false);
-  const [clicked, setClicked] = useState(false);
 
   const handleChangename = (event) => {
     event.persist();
@@ -42,12 +40,6 @@ function CreateProductHook() {
     setQuantity(event.target.value);
   };
 
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setPoster(URL.createObjectURL(event.target.files[0]));
-      setSelectedFile(event.target.files[0]);
-    }
-  };
   const handleChangeCatId = (event) => {
     event.persist();
     setCatId(event.target.value);
@@ -56,6 +48,20 @@ function CreateProductHook() {
     event.persist();
     setBrandId(event.target.value);
   };
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setPoster(URL.createObjectURL(event.target.files[0]));
+      setSelectedFile(event.target.files[0]);
+      console.log(selectedFile);
+      setChange(true);
+    }
+  };
+
+  const handleChangeId = (event) => {
+    event.persist();
+    setCatId(event.target.value);
+  };
+
   const formData = new FormData();
   formData.append("Name", name);
   formData.append("Description", description);
@@ -65,7 +71,7 @@ function CreateProductHook() {
   formData.append("poster", selectedFile);
   formData.append("CategoryId", catId);
   formData.append("BrandId", brandId);
-  const createProduct = async () => {
+  const UpdateProduct = async () => {
     if (
       name === "" ||
       selectedFile === null ||
@@ -87,18 +93,16 @@ function CreateProductHook() {
       notify("quantity Must be Greater Than 0", "warn");
       return;
     }
-    setClicked(true);
+
     await axios
-      .post(baseURL, formData)
+      .put(`https://localhost:7152/api/Products/id?id=${id}`, formData)
       .then((response) => {
         setRes(true);
         console.log(response.data);
 
         setInterval(() => {
-          setClicked(false);
-          // eslint-disable-next-line no-restricted-globals
-          location.reload();
-        }, 1500);
+          window.location.replace("/allProducts");
+        }, 1000);
       })
       .catch(function (error) {
         if (error.response) {
@@ -107,35 +111,69 @@ function CreateProductHook() {
         }
       });
   };
+  function dataURLtoFile(dataurl, filename) {
+    var arr = dataurl.split(","),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
+  }
+
   useEffect(() => {
-    axios.get(categoryUrl).then((response) => {
+    axios
+      .get(`https://localhost:7152/api/Products/id?id=${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setName(response.data.name);
+        setPoster(response.data.poster);
+        setPrice(response.data.price);
+        setQuantity(response.data.quntity);
+        setRate(response.data.rate);
+        setCatId(response.data.categoryId);
+        setDescription(response.data.description);
+        setBrandId(response.data.brandId);
+        setPoster(response.data.poster);
+        setSelectedFile(
+          dataURLtoFile(
+            `data:image/png;base64,${response.data.poster}`,
+            "brand.png"
+          )
+        );
+      });
+    axios.get("https://localhost:7152/api/Categorys").then((response) => {
       setCategories(response.data);
     });
-    axios.get(brandURL).then((response) => {
+    axios.get("https://localhost:7152/api/Brand").then((response) => {
       setBrands(response.data);
     });
   }, []);
   return [
-    name,
-    handleChangename,
-    price,
-    handleChangePrice,
-    rate,
-    handleChangeRate,
-    quantity,
-    handleChangeQuantity,
-    description,
-    handleChangedescription,
-    poster,
-    onImageChange,
-    handleChangeCatId,
-    brands,
-    createProduct,
     res,
-    categories,
+    UpdateProduct,
+    brands,
+    brandId,
     handleChangeBrandId,
-    clicked,
+    categories,
+    catId,
+    handleChangeCatId,
+    onImageChange,
+    poster,
+    change,
+    handleChangedescription,
+    description,
+    handleChangeQuantity,
+    quantity,
+    handleChangeRate,
+    rate,
+    handleChangePrice,
+    price,
+    handleChangename,
+    name,
   ];
 }
 
-export default CreateProductHook;
+export default EditProductHook;

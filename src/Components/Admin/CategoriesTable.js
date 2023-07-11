@@ -4,7 +4,6 @@ import { Button, Modal, Table } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import notify from "../util/notify;";
 import { Link, useNavigate } from "react-router-dom";
-const baseURL = "https://localhost:7152/api/Categorys";
 
 function CategoriesTable() {
   const [categories, setCategories] = useState(null);
@@ -40,7 +39,7 @@ function CategoriesTable() {
     setShow(false);
   };
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get("https://localhost:7152/api/Categorys").then((response) => {
       setCategories(response.data);
     });
   }, []);

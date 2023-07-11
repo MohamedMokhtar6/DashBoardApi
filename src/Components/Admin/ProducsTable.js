@@ -4,7 +4,6 @@ import { Button, Modal, Table } from "react-bootstrap";
 import notify from "../util/notify;";
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
-const baseURL = "https://localhost:7152/api/Products";
 
 function ProducsTable() {
   const [products, setProducts] = useState(null);
@@ -39,7 +38,7 @@ function ProducsTable() {
     setShow(false);
   };
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get("https://localhost:7152/api/Products").then((response) => {
       setProducts(response.data);
     });
   }, []);

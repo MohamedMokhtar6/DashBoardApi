@@ -3,7 +3,8 @@ import { Button, Row } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import CreateCategoryHook from "../../Hooks/CreateCategoryHook";
 function CreateCategory() {
-  const [name, handleChange, createCategory, res] = CreateCategoryHook();
+  const [name, handleChange, createCategory, res, clicked] =
+    CreateCategoryHook();
   return (
     <>
       <Row className="m-3 flex-column align-items-center ">
@@ -19,7 +20,9 @@ function CreateCategory() {
         <Button
           onClick={createCategory}
           variant="dark"
-          className="fit m-3 main-color"
+          className={
+            clicked ? "fit m-3 main-color disabled" : "fit m-3 main-color"
+          }
         >
           Save
         </Button>

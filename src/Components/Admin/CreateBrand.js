@@ -13,6 +13,7 @@ function CreateBrand() {
     handleChangeId,
     onImageChange,
     createBrand,
+    clicked,
   ] = CreateBrandHook();
   return (
     <>
@@ -68,11 +69,13 @@ function CreateBrand() {
         <Button
           onClick={createBrand}
           variant="dark"
-          className="fit m-3 main-color"
+          className={
+            clicked ? "fit m-3 main-color disabled" : "fit m-3 main-color"
+          }
         >
           Save
         </Button>
-        {res && <h4 className="text-center text-success">Brand added</h4>}
+        {res && <h4 className="text-center text-success ">Brand added</h4>}
         <ToastContainer />
       </Row>
     </>

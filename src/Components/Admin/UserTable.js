@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal, Table } from "react-bootstrap";
 import notify from "../util/notify;";
 import { ToastContainer } from "react-toastify";
-const baseURL = "https://localhost:7152/api/User";
-const deleteUser = "https://localhost:7152/api/User?id=";
 function UserTable() {
   const [users, setUsers] = useState(null);
   const [show, setShow] = useState(false);
@@ -38,7 +36,7 @@ function UserTable() {
     setShow(false);
   };
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get("https://localhost:7152/api/User").then((response) => {
       setUsers(response.data);
     });
   }, []);

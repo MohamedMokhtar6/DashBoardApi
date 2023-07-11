@@ -11,7 +11,6 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [res, setRes] = useState(null);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const login = { email: email, password: password };
   const handleChangePassword = (event) => {
@@ -43,7 +42,6 @@ function LoginForm() {
         if (error.response) {
           console.log(error.response.data);
           notify(error.response.data, "warn");
-          setError(error.response.data);
         }
       });
   };

@@ -1,45 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, Row } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
-import CreateCategoryHook from "../../Hooks/CreateCategoryHook";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import notify from "../util/notify;";
+import EditCategoryHook from "../../Hooks/EditCategoryHook";
 
 function EditCategory() {
-  const { id } = useParams();
-  const [name, setName] = useState("");
-  const [res, setRes] = useState(false);
-  const navigate = useNavigate();
-
-  const handleChange = (event) => {
-    event.persist();
-    setName(event.target.value);
-  };
-
-  const UpdateCategory = async () => {
-    if (name === "") {
-      notify("Enter Category Name", "error");
-      return;
-    }
-    await axios
-      .put(`https://localhost:7152/api/Categorys?id=${id}`, { name: name })
-      .then((response) => {
-        setRes(true);
-        setInterval(() => {
-          window.location.replace("/allCategories");
-        }, 1000);
-      });
-  };
-
-  useEffect(() => {
-    axios
-      .get(`https://localhost:7152/api/Categorys/id?id=${id}`)
-      .then((response) => {
-        setName(response.data.name);
-      });
-  }, []);
-
+  const [res, UpdateCategory, handleChange, name] = EditCategoryHook();
   return (
     <>
       <Row className="m-3 flex-column align-items-center ">

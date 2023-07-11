@@ -23,6 +23,7 @@ function CreateProduct() {
     res,
     categories,
     handleChangeBrandId,
+    clicked,
   ] = CreateProductHook();
 
   return (
@@ -129,7 +130,9 @@ function CreateProduct() {
         </div>
         <Button
           variant="dark"
-          className="fit m-3 main-color"
+          className={
+            clicked ? "fit m-3 main-color disabled" : "fit m-3 main-color"
+          }
           onClick={createProduct}
         >
           Save
