@@ -104,6 +104,7 @@ function CreateProductHook() {
         if (error.response) {
           console.log(error.response.data);
           notify(error.response.data, "error");
+          setClicked(false);
         }
       });
   };
