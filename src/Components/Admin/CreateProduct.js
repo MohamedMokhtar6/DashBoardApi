@@ -117,15 +117,12 @@ function CreateProduct() {
             onChange={handleChangeBrandId}
           >
             <option value="0">select Brand</option>
-            {brands
-              ? brands.map((item) => {
-                  return (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                    </option>
-                  );
-                })
-              : null}
+            {brands.length > 0 &&
+              brands.map((brand) => (
+                <option key={brand.id} value={brand.id}>
+                  {brand.name}
+                </option>
+              ))}
           </select>
         </div>
         <Button

@@ -4,11 +4,9 @@ import axios from "axios";
 import avatar from "../Images/add.png";
 
 const baseURL = "https://localhost:7152/api/Products";
-const brandURL = "https://localhost:7152/api/Brand";
 const categoryUrl = "https://localhost:7152/api/Categorys";
 function CreateProductHook() {
   const [categories, setCategories] = useState(null);
-  const [brands, setBrands] = useState(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -20,7 +18,7 @@ function CreateProductHook() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [res, setRes] = useState(false);
   const [clicked, setClicked] = useState(false);
-
+  const [brands, setBrands] = useState([]);
   const handleChangename = (event) => {
     event.persist();
     setName(event.target.value);
@@ -112,10 +110,16 @@ function CreateProductHook() {
     axios.get(categoryUrl).then((response) => {
       setCategories(response.data);
     });
-    axios.get(brandURL).then((response) => {
-      setBrands(response.data);
-    });
-  }, []);
+    if (catId > 0) {
+      axios
+        .get(`https://localhost:7152/api/Brand/categoryId?id=${catId}`)
+        .then((response) => {
+          setBrands(response.data);
+          console.log(catId);
+        });
+    }
+  }, [catId]);
+
   return [
     name,
     handleChangename,
