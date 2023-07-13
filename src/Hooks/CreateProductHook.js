@@ -115,7 +115,6 @@ function CreateProductHook() {
         .get(`https://localhost:7152/api/Brand/categoryId?id=${catId}`)
         .then((response) => {
           setBrands(response.data);
-          console.log(catId);
         });
     }
   }, [catId]);
