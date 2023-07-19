@@ -31,7 +31,8 @@ function OrdersTable() {
         let response = await axios.get(
           `https://localhost:7152/api/Products/id?id=${productId}`
         );
-        productNames.push(response.data.name);
+        productNames.push(`${items[i].quantity} ${response.data.name}`);
+        console.log(items[i].quantity);
       } catch (error) {
         console.log(error);
         productNames.push("");
@@ -63,7 +64,7 @@ function OrdersTable() {
             <tr key={index}>
               <td>{order.id}</td>
               <td>{userName}</td>
-              <td>{productNames.join(", ")}</td>
+              <td>{productNames.join(" , ")}</td>
               <td>{order.orderStatus}</td>
               <td>{order.address}</td>
               <td>{order.city}</td>
